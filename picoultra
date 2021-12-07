@@ -1,0 +1,20 @@
+from machine import pin
+import utime
+trigger = pin(3,pin.OUT)
+echo = pin(2, pin.IN)
+def ultra (): -
+  trigger.low()
+  utime.sleep_us(2)
+  trigger.high()
+  utime.sleep_us(5)
+  trigger.low()
+  while echo.value() == 0: -
+     signaloff = utime.ticks_us()
+ while echo.value() ==1: -
+    signalon = utime.ticks_us()
+ timepassed = signalon – signaloff
+distance = (timpassed * 0.0330) / 2
+print(“The object can be seen from a distance of”,distance, “cm”)
+          while true: -
+              ultra()
+              utime.sleep(1)
